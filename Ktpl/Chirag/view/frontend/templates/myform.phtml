@@ -1,0 +1,47 @@
+<form method="POST" enctype="multipart/form-data" action="<?php echo $this->getUrl('myform/index/post'); ?>" data-hasrequired="<?php echo __('* Required Fields') ?>" data-mage-init='{"validation":{}}'> 
+
+
+<fieldset class="fieldset">
+        
+        <div class="field name required">
+            <label class="label" for="name"><span><?php echo __('Employee Name') ?></span></label>
+            <div class="control">
+                <input name="e_name" id="e_name" title="<?php echo __('Employee Name') ?>" value="" class="input-text" type="text" data-validate="{required:true}"/>
+            </div>
+        </div>
+        <div class="field email required">
+            <label class="label" for="email"><span><?php echo __('Employee Address') ?></span></label>
+            <div class="control">
+                <textarea rows="4" cols="50" data-validate="{required:true}" rows="4" cols="50" name="e_address" id="e_address" title="<?php echo __('Employee Address') ?>"></textarea>
+                
+            </div>
+        </div>
+
+        <div class="field name required">
+            <label class="label" for="name"><span><?php echo __('Employee Profile picture') ?></span></label>
+            <div class="control">
+                <input name="e_profile_picture" id="e_profile_picture" value="" class="input-text" type="file" data-validate="{required:true}"/>
+            </div>
+        </div>
+
+        <div class="field status required">
+            <label class="label" for="status"><span><?php echo __('Employee Status') ?></span></label>
+            <div class="control">
+                <select class="select" id="is_active" name="is_active" aria-required="true">
+                    <option value="1">Active</option>
+                    <option value="2" selected="selected">Inactive</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="actions-toolbar">
+	        <div class="primary">
+	            <button type="submit" title="<?php echo __('Submit') ?>" class="action submit primary">
+	                <span><?php echo __('Submit') ?></span>
+	            </button>
+	        </div>
+    	</div>
+</fieldset>
+	
+
+</form>

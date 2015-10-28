@@ -1,0 +1,6 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+    <menu>
+        <add id="Ktpl_Chirag::chirag" title="Krish" module="Ktpl_Chirag" sortOrder="35" resource="Ktpl_Chirag::chirag"/>
+        <add id="Ktpl_Chirag::manage_items" title="Manage Employees" module="Ktpl_Chirag" sortOrder="12" parent="Ktpl_Chirag::chirag" action="chirag/index/" resource="Ktpl_Chirag::chirag"/>
+    </menu>
+</config>

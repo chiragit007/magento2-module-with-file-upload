@@ -1,0 +1,47 @@
+<?php 
+$baseUrl= $this->getBaseUrl();
+$ConfigUrl  = $this->getConfigUrl();
+$mediaUrl = $ConfigUrl . 'pub/media/chirag/';
+//$mediaurl= $this->getUrl('media'); 
+?>
+<a class="action submit primary" href="<?php echo $baseUrl .'myform/index/index' ?>">
+                <span>Add New Employee</span>
+</a>
+<?php  
+$_employeerecords = $this->getCollection(); 
+if($_employeerecords && count($_employeerecords))
+{
+?>
+<table>
+    <thead>
+        <tr>
+            <th scope="col" class="col id"><?php echo __('ID #') ?></th>
+            <th scope="col" class="col title"><?php echo __('Employee Name') ?></th>
+            <th scope="col" class="col title"><?php echo __('Employee Address') ?></th>
+            <th scope="col" class="col title"><?php echo __('Employee Profile Picture') ?></th>
+        </tr>
+    </thead>
+	<?php
+		foreach ($_employeerecords as $employee) 
+		{
+	?>
+		<tr>
+			<td><?php echo $employee->getData('e_id'); ?></td>
+			<td><?php echo $employee->getData('e_name'); ?></td>
+			<td><?php echo $employee->getData('e_address'); ?></td>
+			<?php if($employee->getData('e_profile_picture') && $employee->getData('e_profile_picture') !='') 
+				{
+			?>
+			<td><a target="_blank" href="<?php echo $mediaUrl . $employee->getData('e_profile_picture'); ?>"><img style="height:50px;" src="<?php echo $mediaUrl . $employee->getData('e_profile_picture'); ?>"/></a></td>
+			<?php } else {  ?>
+			<td>No Picture Available.</td>
+			<?php } ?>
+		</tr>
+	<?php
+		}
+}
+	?>
+</table>
+<?php if ($block->getPagerHtml()): ?>
+        <div class="order-products-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+<?php endif ?>
