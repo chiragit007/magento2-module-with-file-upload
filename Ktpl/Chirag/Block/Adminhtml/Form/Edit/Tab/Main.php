@@ -107,7 +107,7 @@ class Main extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
                 'name' => 'e_profile_picture',
                 'required' => true,
                 'disabled' => $isElementDisabled,
-                'value' =>'abc'               
+                //'value' =>'abc'               
             ]
         );
 
@@ -126,6 +126,9 @@ class Main extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
         if (!$model->getId()) {
             $model->setData('is_active', $isElementDisabled ? '0' : '1');
         }
+
+        if($model->getData('e_profile_picture'))
+            $model->setData('e_profile_picture','chirag/'.$model->getData('e_profile_picture'));
 
         $form->setValues($model->getData());
         $this->setForm($form);

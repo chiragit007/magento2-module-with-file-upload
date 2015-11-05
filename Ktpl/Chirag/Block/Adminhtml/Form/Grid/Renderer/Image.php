@@ -2,10 +2,7 @@
 
 namespace Ktpl\Chirag\Block\Adminhtml\Form\Grid\Renderer;
 
-use Magento\Backend\Block\Widget\Grid\Column\Renderer\AbstractRenderer;
-use Magento\Framework\DataObject;
 use Magento\Store\Model\StoreManagerInterface;
-use Magento\Framework\Filesystem;
 use Magento\Framework\App\Filesystem\DirectoryList;
 
 class Image extends \Magento\Backend\Block\Widget\Grid\Column\Renderer\AbstractRenderer
@@ -20,7 +17,7 @@ class Image extends \Magento\Backend\Block\Widget\Grid\Column\Renderer\AbstractR
         $this->_storeManager = $storemanager;
         $this->_filesystem = $filesystem;
         parent::__construct($context, $data);
-        $this->_authorization = $context->getAuthorization();
+        //$this->_authorization = $context->getAuthorization();
     }
     /**
      * Renders grid column
@@ -28,7 +25,7 @@ class Image extends \Magento\Backend\Block\Widget\Grid\Column\Renderer\AbstractR
      * @param Object $row
      * @return  string
      */
-    public function render(DataObject $row)
+    public function render(\Magento\Framework\Object $row)
     {
         $mediaDirectory = $this->_storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
         $mediaDir = $this->_filesystem->getDirectoryRead(DirectoryList::MEDIA)->getAbsolutePath();
